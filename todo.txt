@@ -1,0 +1,8 @@
+[] add player paddle collision
+[] add enemy paddle
+   [] object
+   [] AI
+[] Add scoring when ball hits either players side
+[] Add UI to display score
+[] add rule to end game after first player reaches 7 points
+[] Add UI for starting the game
