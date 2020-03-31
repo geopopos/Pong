@@ -1,7 +1,8 @@
 [x] add player paddle collision
-[] add enemy paddle
-   [] object
-   [] AI
+[x] add enemy paddle
+   [x] object
+   [x] AI
+[] make ball actually go in random direction...
 [] Add scoring when ball hits either players side
 [] Add UI to display score
 [] add rule to end game after first player reaches 7 points

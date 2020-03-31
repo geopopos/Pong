@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Divider.png" type="Texture" id=2]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Opponent/Opponent.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 370.142, 4.99828 )
@@ -43,3 +44,5 @@ shape = SubResource( 3 )
 [node name="Side 2" type="CollisionShape2D" parent="Borders"]
 position = Vector2( 725, 240 )
 shape = SubResource( 4 )
+
+[node name="Opponent" parent="." instance=ExtResource( 4 )]
