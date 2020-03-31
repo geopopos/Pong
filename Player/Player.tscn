@@ -6,12 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.78024, 16.0273 )
 
-[node name="Player" type="Area2D"]
-position = Vector2( 32, 94 )
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 32, 240 )
+scale = Vector2( 1, 2 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+speed = 300
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

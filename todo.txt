@@ -1,4 +1,4 @@
-[] add player paddle collision
+[x] add player paddle collision
 [] add enemy paddle
    [] object
    [] AI
