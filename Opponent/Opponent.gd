@@ -10,8 +10,8 @@ func _ready():
 
 func _process(delta):
 	var velocity = Vector2()
-	var ball = get_parent().get_node("Ball")
-	if ball:
+	if get_parent().has_node("Ball"):
+		var ball = get_parent().get_node("Ball")
 		if ball.position.y > (position.y - 16):
 			velocity.y += 1
 		elif ball.position.y < (position.y + 16):

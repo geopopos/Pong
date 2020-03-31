@@ -2,8 +2,10 @@
 [x] add enemy paddle
    [x] object
    [x] AI
-[] make ball actually go in random direction...
-[] Add scoring when ball hits either players side
+[x] Add scoring when ball hits either players side
+[x] add method to re-populate ball in scene on scored.
+[x] add rule to end game after first player reaches 7 points
+[x] make ball actually go in random direction...
+[] add method to start new game
 [] Add UI to display score
-[] add rule to end game after first player reaches 7 points
 [] Add UI for starting the game
