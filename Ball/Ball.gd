@@ -1,29 +1,26 @@
-extends Area2D
+extends KinematicBody2D
 
 export var speed = 250
+var velocity: Vector2
 var direction = Vector2()
 var rand_dir = [-1, 1]
+var middle: Vector2
+var bounce_coefficient = 1.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	randomize()
 	direction.x = rand_dir[randi()%1]
 	direction.y = rand_dir[randi()%1]
 
-
-func _process(delta):
-	var velocity = direction * speed
-	position += velocity * delta
-
-# func _on_Ball_body_entered(body):
-# 	print(body)
-# 	$CollisionShape2D.set_deferred("disabled", true)
-
-func _on_Ball_area_entered(area):
-	print(area.name)
-	if area.name == "Top" || area.name == "Bottom":
-		print("FLIP")
-		direction.y *= -1
-	elif area.name == "Side 1" || area.name == "Side 2":
-		print("FLIP X")
-		direction.x *= -1
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	middle = Vector2(OS.window_size.x/2, OS.window_size.y/2)
+	position = middle
+	velocity = direction * speed
+	
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var motion = collision.remainder.bounce(collision.normal)
+		velocity = velocity.bounce(collision.normal)
+		move_and_collide(motion)
