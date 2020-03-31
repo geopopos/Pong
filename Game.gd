@@ -9,11 +9,19 @@ var ball
 
 func _ready():
 	randomize()
+
+func game_start():
 	player1_score = 0
 	player2_score = 0
+	$HUD.update_score("Score1Label", player1_score)
+	$HUD.update_score("Score2Label", player2_score)
+	$HUD.show_message("Get Ready")
+	yield(get_tree().create_timer(3.0), "timeout")
 	add_child(load("res://Ball/Ball.tscn").instance())
-	$Ball.connect("scored", self, "_on_Ball_scored")
+	$Ball.connect("scored", self, "_on_Ball_scored")	
 
+func game_over():
+	$HUD.show_game_over(winner)
 
 func _process(delta):
 	pass
@@ -22,16 +30,18 @@ func _process(delta):
 func _on_Ball_scored(player_name):
 	if player_name == "Side 1":
 		player2_score += 1
+		$HUD.update_score("Score2Label", player2_score)
 	elif player_name == "Side 2":
 		player1_score += 1
+		$HUD.update_score("Score1Label", player1_score)
 	print("Player 1: " + str(player1_score))
 	print("Player 2: " + str(player2_score))
-	yield(get_tree().create_timer(1.0), "timeout")
 	if check_win():
-		print (winner + " Won!")
-
-	add_child(load("res://Ball/Ball.tscn").instance())
-	$Ball.connect("scored", self, "_on_Ball_scored")
+		game_over()
+	else:
+		yield(get_tree().create_timer(1.0), "timeout")
+		add_child(load("res://Ball/Ball.tscn").instance())
+		$Ball.connect("scored", self, "_on_Ball_scored")
 
 func check_win():
 	if player1_score >= 7:

@@ -6,6 +6,8 @@
 [x] add method to re-populate ball in scene on scored.
 [x] add rule to end game after first player reaches 7 points
 [x] make ball actually go in random direction...
-[] add method to start new game
-[] Add UI to display score
-[] Add UI for starting the game
+[x] add method to start new game
+[x] Add UI to display score
+[x] Add UI for starting the game
+[x] update add message label
+[] center message label for all messages
