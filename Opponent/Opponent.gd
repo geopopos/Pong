@@ -12,10 +12,11 @@ func _process(delta):
 	var velocity = Vector2()
 	if get_parent().has_node("Ball"):
 		var ball = get_parent().get_node("Ball")
-		if ball.position.y > (position.y - 16):
-			velocity.y += 1
-		elif ball.position.y < (position.y + 16):
-			velocity.y -= 1
+		if ball.position.x > 360:
+			if ball.position.y > (position.y - 8):
+				velocity.y += 1
+			elif ball.position.y < (position.y + 8):
+				velocity.y -= 1
 		if velocity.length() > 0:
 			velocity *= speed
 		position += velocity * delta
