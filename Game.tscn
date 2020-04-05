@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Divider.png" type="Texture" id=2]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Opponent/Opponent.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game.gd" type="Script" id=5]
+[ext_resource path="res://Brick.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 370.142, 4.99828 )
+extents = Vector2( 432.566, 4.99828 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 369.421, 4.93375 )
+extents = Vector2( 433.7, 4.93375 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.14944, 248.31 )
@@ -20,21 +21,23 @@ extents = Vector2( 5.91913, 248.31 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
+Brick = ExtResource( 6 )
 
 [node name="Net" type="Sprite" parent="."]
-position = Vector2( 360, 240 )
+position = Vector2( 424, 239.477 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 240 )
 
 [node name="Borders" type="StaticBody2D" parent="."]
 
 [node name="Top" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 360, -5 )
+position = Vector2( 424, -5 )
 shape = SubResource( 1 )
 
 [node name="Bottom" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 360, 485 )
+position = Vector2( 424, 485 )
 shape = SubResource( 2 )
 
 [node name="Side 1" type="CollisionShape2D" parent="Borders"]
@@ -42,10 +45,11 @@ position = Vector2( -5, 240 )
 shape = SubResource( 3 )
 
 [node name="Side 2" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 725, 240 )
+position = Vector2( 853, 240 )
 shape = SubResource( 4 )
 
 [node name="Opponent" parent="." instance=ExtResource( 4 )]
+position = Vector2( 752, 240 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 [connection signal="start_game" from="HUD" to="." method="game_start"]
