@@ -10,4 +10,4 @@
 [x] Add UI to display score
 [x] Add UI for starting the game
 [x] update add message label
-[] center message label for all messages
+[x] center message label for all messages
