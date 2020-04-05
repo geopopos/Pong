@@ -26,6 +26,8 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.normal)
 		move_and_collide(motion)
 
+		if collision.get_collider_shape().get_name() == "BrickSollisionShape2D":
+			collision.get_collider().queue_free()
 		if collision.get_collider_shape().get_name() == "Side 1" || collision.get_collider_shape().get_name() == "Side 2":
 			emit_signal("scored", collision.get_collider_shape().get_name())
 			queue_free()

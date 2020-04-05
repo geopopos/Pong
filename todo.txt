@@ -11,3 +11,7 @@
 [x] Add UI for starting the game
 [x] update add message label
 [x] center message label for all messages
+[x] create brick node
+[x] populate brick nodes into scene
+[] modify scoring system to be health instead of score
+[] add power up drops to bricks
