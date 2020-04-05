@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ping pong or table tennis - bat hitting a ball 8.wav-9f06f7db47ebeba54b2eb12ee04e6126.sample"
+
+[deps]
+
+source_file="res://assets/Ping pong or table tennis - bat hitting a ball 8.wav"
+dest_files=[ "res://.import/Ping pong or table tennis - bat hitting a ball 8.wav-9f06f7db47ebeba54b2eb12ee04e6126.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
