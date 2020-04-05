@@ -28,6 +28,11 @@ func _physics_process(delta):
 
 		if collision.get_collider_shape().get_name() == "BrickSollisionShape2D":
 			collision.get_collider().queue_free()
+			$BrickAudio.play(0)
+		if collision.get_collider_shape().get_name() == "Player":
+			$Player1Audio.play(0)
+		if collision.get_collider_shape().get_name() == "Opponent":
+			$Player2Audio.play(0)
 		if collision.get_collider_shape().get_name() == "Side 1" || collision.get_collider_shape().get_name() == "Side 2":
 			emit_signal("scored", collision.get_collider_shape().get_name())
 			queue_free()

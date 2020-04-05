@@ -13,5 +13,6 @@
 [x] center message label for all messages
 [x] create brick node
 [x] populate brick nodes into scene
-[] modify scoring system to be health instead of score
+[x] modify scoring system to be health instead of score
+[x] add sound effects and bgm
 [] add power up drops to bricks

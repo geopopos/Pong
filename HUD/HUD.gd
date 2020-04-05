@@ -29,11 +29,15 @@ func _on_StartButton_pressed():
 	$StartButton.hide()
 	emit_signal("start_game")
 
-func update_score(label, score):
-	print(score)
-	var score_label = get_node(label)
-	print(score_label.get_name())
-	score_label.text = str(score)
+func update_health(player, health):
+	if player == "player1":
+		var health_bar = get_node("Player1Health")
+		for i in range(health,3):
+			health_bar.get_child(i).hide()
+	if player == "player2":
+		var health_bar = get_node("Player2Health")
+		for i in range(health,3):
+			health_bar.get_child(i).hide()
 
 func _on_MessageTimer_timeout():
 	$MessageLabel.hide()

@@ -2,9 +2,9 @@ extends Node2D
 
 export (PackedScene) var Brick 
 
-export var max_score: int = 7
-export var player1_score: int
-export var player2_score: int
+export var max_hearts: int = 3 
+export var player1_hearts: int
+export var player2_hearts: int
 var winner
 var ball
 var screensize
@@ -15,11 +15,12 @@ func _ready():
 	screensize = get_viewport_rect().size
 
 func game_start():
-	player1_score = 0
-	player2_score = 0
-	$HUD.update_score("Score1Label", player1_score)
-	$HUD.update_score("Score2Label", player2_score)
+	player1_hearts = 3
+	player2_hearts = 3
+	$HUD.update_health("player", player1_hearts)
+	$HUD.update_health("player2", player2_hearts)
 	populate_bricks()
+	$BGMusic.play()
 	$HUD.show_message("Get Ready")
 	yield(get_tree().create_timer(3.0), "timeout")
 	add_child(load("res://Ball/Ball.tscn").instance())
@@ -34,13 +35,13 @@ func _process(delta):
 
 func _on_Ball_scored(player_name):
 	if player_name == "Side 1":
-		player2_score += 1
-		$HUD.update_score("Score2Label", player2_score)
+		player1_hearts -= 1
+		$HUD.update_health("player1", player1_hearts)
 	elif player_name == "Side 2":
-		player1_score += 1
-		$HUD.update_score("Score1Label", player1_score)
-	print("Player 1: " + str(player1_score))
-	print("Player 2: " + str(player2_score))
+		player2_hearts -= 1
+		$HUD.update_health("player2", player2_hearts)
+	print("Player 1: " + str(player1_hearts))
+	print("Player 2: " + str(player2_hearts))
 	if check_win():
 		game_over()
 	else:
@@ -49,11 +50,11 @@ func _on_Ball_scored(player_name):
 		$Ball.connect("scored", self, "_on_Ball_scored")
 
 func check_win():
-	if player1_score >= 7:
-		winner = "Player 1"
-		return true
-	elif player2_score >= 7:
+	if player1_hearts <= 0:
 		winner = "Player 2"
+		return true
+	elif player2_hearts <= 0:
+		winner = "Player 1"
 		return true
 	return false
 

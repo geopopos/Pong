@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Different Heaven - Nekozilla _NCS Release_.ogg-3178e52b97cf13cd37d7816d08061f1e.oggstr"
+
+[deps]
+
+source_file="res://assets/Different Heaven - Nekozilla _NCS Release_.ogg"
+dest_files=[ "res://.import/Different Heaven - Nekozilla _NCS Release_.ogg-3178e52b97cf13cd37d7816d08061f1e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
